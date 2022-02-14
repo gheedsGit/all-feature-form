@@ -4,7 +4,7 @@ import TextField from "@material-ui/core//TextField";
 const Input = forwardRef((props, ref) => {
   return (
     <TextField
-      variant="outlined"
+      variant="filled"
       margin="normal"
       inputRef={ref}
       fullWidth
