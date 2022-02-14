@@ -21,7 +21,7 @@ const schema = yup.object().shape({
 
 const Step1 = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, formState: { errors } } = useForm({
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
@@ -38,7 +38,6 @@ const Step1 = () => {
           id="firstName"
           type="text"
           label="First Name"
-          name="firstName"
           error={!!errors?.firstName}
           helperText={errors?.firstName?.message}
         />
