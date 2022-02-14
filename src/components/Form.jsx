@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Form = ({ children, props }) => {
+const Form = ({ children, ...props }) => {
   const classes = useStyles();
 
   return (

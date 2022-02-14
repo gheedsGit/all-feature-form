@@ -13,7 +13,7 @@ const App = () => {
       <Header />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Step1 />} />
+          <Route exact path="/" element={<Step1 />} />
           <Route path="/step2" element={<Step2 />} />
           <Route path="/step3" element={<Step3 />} />
           <Route path="/result" element={<Result />} />

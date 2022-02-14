@@ -11,13 +11,15 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Tomorrow, sans-serif",
     textShadow: "1px 1px #00f0ff",
     fontWeight: "500",
+    textTransform: "uppercase",
   },
 }));
+
 const Header = () => {
   const classes = useStyles();
   return (
     <Typography className={classes.root} component="h1">
-      All Feature Form
+      All Feature Form_
     </Typography>
   );
 };

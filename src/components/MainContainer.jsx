@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
     height: "600px",
-    border: "1px solid",
+    border: "2px solid",
+    boxShadow: "2px 2px #00f0ff",
   },
 }));
 
