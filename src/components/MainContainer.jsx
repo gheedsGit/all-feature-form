@@ -6,14 +6,14 @@ import Typography from "@material-ui/core/Typography";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(4),
+    paddingTop: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    height: "600px",
+    height: "445px",
     border: "2px solid",
     boxShadow: "2px 2px #00f0ff",
     typography: {
-      margin: theme.spacing(3, 0, 2),
       textAlign: "center",
       fontSize: "24px",
       color: "#050a0e",
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       textShadow: "1px 1px #00f0ff",
       fontWeight: "300",
       textTransform: "uppercase",
-    }
+    },
   },
 }));
 
@@ -35,7 +35,11 @@ const MainContainer = ({ children, typoMessage, ...props }) => {
       maxWidth="xs"
       {...props}
     >
-      <Typography className={classes.root.typography} component="h2" variant="h5">
+      <Typography
+        className={classes.root.typography}
+        component="h2"
+        variant="h5"
+      >
         {" "}
         {typoMessage}
       </Typography>

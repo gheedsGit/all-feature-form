@@ -10,6 +10,7 @@ import * as yup from "yup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import parsePhoneNumberFormString from "libphonenumber-js";
+import { useData } from "../DataContext";
 
 const schema = yup.object().shape({
   email: yup
@@ -24,20 +25,26 @@ const normalizePhoneNumber = (value) => {
   }
   return phoneNumber.formatInternational();
 };
+
 const Step2 = () => {
   const navigate = useNavigate();
+  const { data, setValues } = useData();
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
   } = useForm({
+    defaultValues: {
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+    },
     mode: "onBlur",
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    setValues(data);
     navigate("/step3");
   };
 
@@ -56,7 +63,13 @@ const Step2 = () => {
           helperText={errors?.email?.message}
         />
         <FormControlLabel
-          control={<Checkbox {...register("hasPhone")} />}
+          control={
+            <Checkbox
+              defaultValue={data.hasPhone}
+              defaultChecked={data.hasPhone}
+              {...register("hasPhone")}
+            />
+          }
           label="Do you have phone?"
         />
         {hasPhone && (
